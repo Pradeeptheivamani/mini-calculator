@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mini Calculator</title>
+    <script>
+        function calculate(op) {
+            let num1 = parseFloat(document.getElementById("n1").value);
+            let num2 = parseFloat(document.getElementById("n2").value);
+            let result = 0;
+
+            if (isNaN(num1) || isNaN(num2)) {
+                alert("Please enter valid numbers!");
+                return;
+            }
+
+            if (op === '+') {
+                result = num1 + num2;
+            } 
+            else if (op === '-') {
+                result = num1 - num2;
+            } 
+            else if (op === '*') {
+                result = num1 * num2;
+            } 
+            else if (op === '/') {
+                if (num2 === 0) {
+                    alert("Cannot divide by zero!");
+                    return;
+                }
+                result = num1 / num2;
+            }
+
+            document.getElementById("output").innerHTML = "Result: " + result;
+        }
+    </script>
+</head>
+
+<body>
+    <h2>Mini Calculator</h2>
+
+    <label>Enter first number</label><br>
+    <input type="text" id="n1"><br><br>
+
+    <label>Enter second number</label><br>
+    <input type="text" id="n2"><br><br>
+
+    <button onclick="calculate('+')">Add</button>
+    <button onclick="calculate('-')">Subtract</button>
+    <button onclick="calculate('*')">Multiply</button>
+    <button onclick="calculate('/')">Divide</button>
+
+    <h3 id="output">Result</h3>
+</body>
+</html>
